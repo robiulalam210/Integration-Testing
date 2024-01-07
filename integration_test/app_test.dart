@@ -6,27 +6,22 @@ import 'package:intrgression_test_reversi/main.dart' as app;
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  group(
-    'end to end test',
-    () {
-      testWidgets(
-        'verify login screen with correct username and password',
+  testWidgets(
+    'reversi',
         (tester) async {
-          app.main();
-          await tester.pumpAndSettle();
-          await Future.delayed(const Duration(seconds: 2));
-          await tester.enterText(find.byType(TextFormField).at(0), 'username');
-          await Future.delayed(const Duration(seconds: 2));
-          await tester.enterText(find.byType(TextFormField).at(1), 'password');
-          await Future.delayed(const Duration(seconds: 2));
-          await tester.tap(find.byType(ElevatedButton));
-          await Future.delayed(const Duration(seconds: 2));
-          await tester.pumpAndSettle();
+      app.main();
+      await tester.pumpAndSettle();
+      await Future.delayed(const Duration(seconds: 2));
+      var testedit = find.byType(TextField);
+      await tester.enterText(testedit, "Hello");
+      await Future.delayed(const Duration(seconds: 2));
+      await tester.tap(find.byType(MaterialButton));
 
-          await Future.delayed(const Duration(seconds: 2));
-          // expect(find.byType(HomeScreen), findsOneWidget);
-        },
-      );
+
+
+      // await tester.pump();
+
+      // expect("olleH", findsNothing);
 
 
     },

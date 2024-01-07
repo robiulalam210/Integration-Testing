@@ -63,6 +63,7 @@ class _HomePageState extends State<HomePage> {
                 if (_controller!.text.isEmpty) return;
                 setState(() {
                   _reversed = reverseString(_controller!.text);
+                  print(_reversed);
                 });
               },
             ),
